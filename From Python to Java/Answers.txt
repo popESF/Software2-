@@ -1,0 +1,148 @@
+import java.util.Scanner;
+
+public class P1Exo2 {
+
+    public static void main(String[] args) {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.print("Enter the amout of banana to purchase: ");
+        double weight = keyboard.nextDouble();
+        double cost = weight * 3.0;
+
+        max = 1;
+        
+        if (cost >= 50) {
+            System.out.println(" The cost is Â£" + (cost + 1.5));
+        } else {
+            System.out.println(" The cost is Â£" + (cost + 4.99));
+        }
+        
+        keyboard.close();
+    }
+}
+///////////////////////////////////////////////////////////////////////////
+import java.util.Scanner;
+
+public class P1Exo3 {
+
+    public static void main(String[] args) {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.print("Enter your age: ");
+        int age = keyboard.nextInt();
+        System.out.print("Enter your heart rate: ");
+        int rate = keyboard.nextInt();
+
+        double maxHeartRate = 208 - 0.7 * age;
+        if (rate >= 0.9 * maxHeartRate) {
+            System.out.println(" Interval training");
+        } else if (rate >= 0.7 * maxHeartRate && rate < 0.9 * maxHeartRate) {
+            System.out.println(" Threshold training");
+        } else if (rate >= 0.5 * maxHeartRate && rate < 0.7 * maxHeartRate) {
+            System.out.println(" Aerobic training");
+        } else {
+            System.out.println(" Couch potatog");
+        }
+
+        keyboard.close();
+    }
+}
+///////////////////////////////////////////////////////////////////////////
+import java.util.Scanner;
+
+public class P1Exo5 {
+
+    public static void main(String[] args) {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.print("Enter a whole number [0 to exit]: ");
+        int number = keyboard.nextInt();
+        int sum = 0;
+        while (number != 0) {
+            sum += number;
+            System.out.print("Enter a whole number [0 to exit]: ");
+            number = keyboard.nextInt();
+        }
+        System.out.print("the total sum of numbers entered is " + sum);
+        keyboard.close();
+    }
+}
+///////////////////////////////////////////////////////////////////////////
+import java.util.Scanner;
+
+public class P1Exo6a {
+
+    public static void main(String[] args) {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.print("Enter a sentence: ");
+        String sentence = keyboard.nextLine();
+        String output = "";
+        for(int i = 0; i < sentence.length(); i++){
+            if(sentence.charAt(i) != ' '){
+                output += sentence.charAt(i);
+            }
+        }
+        System.out.println(output);
+        keyboard.close();
+    }
+}
+///////////////////////////////////////////////////////////////////////////
+import java.util.Scanner;
+
+public class P1Exo6b {
+
+    public static void main(String[] args) {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.print("Enter a sentence: ");
+        String sentence = keyboard.nextLine();
+        String output = "";
+        boolean newWord = true;
+        for(int i = 0; i < sentence.length(); i++){
+            if(sentence.charAt(i) != ' '){
+                if (newWord){
+                    // We can use the toUpperCase method from string to make an 
+                    // uppercase copy of sentence and then get the 
+                    // corresponding character. 
+                    output += sentence.toUpperCase().charAt(i);
+                } else {
+                    // Alternatively, we can use the class method from 
+                    // Character to convert a single character to lowercase.
+                    output += Character.toLowerCase(sentence.charAt(i));
+                }
+                newWord = false;
+            } else {
+                newWord = true;
+            }
+        }
+        System.out.println(output);
+        keyboard.close();
+    }
+}
+///////////////////////////////////////////////////////////////////////////
+import java.util.Scanner;
+
+public class P1Exo7 {
+
+    public static void main(String[] args) {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.print("Enter first int: ");
+        int number = keyboard.nextInt();
+        String first = Integer.toString(number);
+        System.out.print("Enter second int: ");
+        number = keyboard.nextInt();
+        String second = Integer.toString(number);
+        String output = "";
+
+        for( int i = 0; i < Math.min(first.length(), second.length()); i++){
+            if (first.charAt(i) == second.charAt(i)){
+                output += '1';
+            } else {
+                output += '0';
+            }
+        }
+        for( int i = 0; i < Math.abs(first.length() - second.length()); i++){
+            output += '0';
+        }
+
+        System.out.println(output);
+        keyboard.close();
+    }
+}
+///////////////////////////////////////////////////////////////////////////
